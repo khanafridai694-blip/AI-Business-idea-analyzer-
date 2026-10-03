@@ -1,4 +1,3 @@
-```python
 from crewai import Task
 
 
@@ -58,5 +57,4 @@ A structured Challenger analysis containing:
             technical_task,
         ],
     )
-```
 
