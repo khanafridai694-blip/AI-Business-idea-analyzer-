@@ -11,10 +11,10 @@ Startup idea:
 
 {idea}
 
-You have access to the Market, Business, and Technical Agent analyses through
+Review the Market, Business, and Technical Agent analyses provided through
 the task context.
 
-Carefully review those analyses and challenge their conclusions.
+Your job is to challenge the analyses constructively.
 
 Identify:
 
@@ -35,7 +35,8 @@ For every important criticism, explain:
 
 Be constructive rather than simply negative.
 
-Do not invent statistics or claim that live web research was performed.
+Do not invent statistics.
+Do not claim that live web research was performed.
 Clearly distinguish assumptions from conclusions.
 """,
         expected_output="""
@@ -59,7 +60,3 @@ A structured Challenger analysis containing:
     )
 ```
 
-        expected_output="A structured challenge and debate analysis.",
-        agent=agent,
-        context=[market_task, business_task, technical_task],
-    )
