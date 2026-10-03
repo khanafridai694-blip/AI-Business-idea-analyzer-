@@ -1,17 +1,22 @@
 from crewai import Task
 
 
-def create_final_plan_task(agent, market_task, business_task, technical_task, debate_task):
+def create_final_plan_task(
+    agent,
+    market_task,
+    business_task,
+    technical_task,
+    debate_task,
+):
     return Task(
         description="""
-Create the final improved startup/product plan.
+Create the final improved startup plan for:
 
-Original idea:
 {idea}
 
-Use the specialist analyses and the Challenger's debate.
+Use the analyses and Challenger debate from the task context.
 
-Your final answer must contain:
+Include:
 
 1. Executive Summary
 2. Problem
@@ -24,17 +29,16 @@ Your final answer must contain:
 9. Technical Architecture
 10. Main Risks
 11. Improvements After Debate
-12. 90-Day Development Roadmap
+12. 90-Day Roadmap
 13. 30-Second Elevator Pitch
 
-Important:
-- Do not claim that real market research was performed.
-- Do not invent statistics.
-- Clearly distinguish assumptions from conclusions.
-- Keep the MVP realistic.
-- Incorporate useful Challenger feedback.
+The Challenger's findings must influence the final plan.
+
+Be practical and concise.
+Do not invent statistics.
+Do not claim live web research.
 """,
-        expected_output="A complete improved startup/product plan.",
+        expected_output="A practical final startup plan of about 800-1000 words.",
         agent=agent,
         context=[
             market_task,
