@@ -10,46 +10,26 @@ Startup idea:
 
 {idea}
 
-Review the Market, Business, and Technical Agent analyses provided through
-the task context.
+Review the Market, Business, and Technical analyses from the task context.
 
-Your job is to challenge the analyses constructively.
+Identify the most important:
 
-Identify:
+1. Weak assumption
+2. Customer problem
+3. Business problem
+4. Technical problem
+5. Contradiction
+6. Improvement
 
-1. The strongest weakness in the idea
-2. The weakest assumption
-3. Important customer concerns
-4. Important business concerns
-5. Important technical concerns
-6. Contradictions or disagreements between the analyses
-7. Missing information or overlooked risks
-8. Specific improvements that should be made
+For each important issue, briefly explain:
+- What is wrong?
+- Why does it matter?
+- What should change?
 
-For every important criticism, explain:
-
-- What is the problem?
-- Why could it be a problem?
-- What should the team do about it?
-
-Be constructive rather than simply negative.
-
+Focus only on the most important issues.
 Do not invent statistics.
-Do not claim that live web research was performed.
-Clearly distinguish assumptions from conclusions.
 """,
-        expected_output="""
-A structured Challenger analysis containing:
-
-- Strongest weaknesses
-- Weak assumptions
-- Customer concerns
-- Business concerns
-- Technical concerns
-- Disagreements
-- Missing considerations
-- Specific recommended improvements
-""",
+        expected_output="A concise challenge/debate analysis of about 400-500 words.",
         agent=agent,
         context=[
             market_task,
