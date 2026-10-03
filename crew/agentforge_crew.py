@@ -1,5 +1,11 @@
 import os
+# Fix CrewAI cache_breakpoint issue with Groq/LiteLLM
+try:
+    import crewai.llms.cache as crewai_cache
 
+    crewai_cache.mark_cache_breakpoint = lambda message: message
+except Exception:
+    pass
 from crewai import Crew, LLM, Process
 
 from agents.manager import create_manager_agent
