@@ -1,3 +1,4 @@
+```python
 from crewai import Task
 
 
@@ -6,35 +7,58 @@ def create_debate_task(agent, market_task, business_task, technical_task):
         description="""
 You are the Challenger Agent.
 
-The startup idea is:
+Startup idea:
 
 {idea}
 
-Review the outputs from the Market, Business, and Technical agents.
+You have access to the Market, Business, and Technical Agent analyses through
+the task context.
 
-Your job is to challenge their conclusions.
+Carefully review those analyses and challenge their conclusions.
 
 Identify:
+
 1. The strongest weakness in the idea
 2. The weakest assumption
-3. A customer-related concern
-4. A business-related concern
-5. A technical concern
-6. A disagreement between the analyses, if one exists
-7. Specific improvements that could solve the weaknesses
+3. Important customer concerns
+4. Important business concerns
+5. Important technical concerns
+6. Contradictions or disagreements between the analyses
+7. Missing information or overlooked risks
+8. Specific improvements that should be made
 
-Do not criticize the idea without explaining the reason.
-Do not invent facts.
+For every important criticism, explain:
 
-Market analysis:
-{market_output}
+- What is the problem?
+- Why could it be a problem?
+- What should the team do about it?
 
-Business analysis:
-{business_output}
+Be constructive rather than simply negative.
 
-Technical analysis:
-{technical_output}
+Do not invent statistics or claim that live web research was performed.
+Clearly distinguish assumptions from conclusions.
 """,
+        expected_output="""
+A structured Challenger analysis containing:
+
+- Strongest weaknesses
+- Weak assumptions
+- Customer concerns
+- Business concerns
+- Technical concerns
+- Disagreements
+- Missing considerations
+- Specific recommended improvements
+""",
+        agent=agent,
+        context=[
+            market_task,
+            business_task,
+            technical_task,
+        ],
+    )
+```
+
         expected_output="A structured challenge and debate analysis.",
         agent=agent,
         context=[market_task, business_task, technical_task],
